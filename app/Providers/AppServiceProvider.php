@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;//导入共享类
 use App\Http\Controllers\Home\IndexController;
+use Illuminate\Support\Facades\Schema;//导入把字符串长度变大类
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,7 +16,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::share('common_links',IndexController::getLinksData());
+        //View::share('common_links',IndexController::getLinksData());
+        Schema::defaultStringLength(191);//把字符串长度变大
     }
 
     /**
